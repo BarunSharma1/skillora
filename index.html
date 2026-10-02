@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skillora M-Core Consultant | HR, Compliance & Core Business Services</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate900: '#0f172a',
+                        slate800: '#1e293b',
+                        primaryBlue: '#0284c7',
+                        tealAccent: '#0d9488',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom smooth styling & glassmorphism */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(2, 132, 199, 0.15), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(13, 148, 136, 0.1), transparent 50%),
+                        #0f172a;
+        }
+        .card-hover {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(2, 132, 199, 0.1), 0 10px 10px -5px rgba(2, 132, 199, 0.04);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 font-sans antialiased selection:bg-primaryBlue selection:text-white">
+
+    <!-- Top Notification / Emergency Contact Bar -->
+    <div class="bg-slate900 text-slate-300 text-xs sm:text-sm py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-primaryBlue"></i> director.skillora@gmail.com</span>
+                <span class="hidden md:flex items-center gap-1.5"><i class="fa-solid fa-phone text-tealAccent"></i> 8408871182</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-tealAccent font-medium"><i class="fa-solid fa-shield-halved mr-1"></i> 100% Statutory Compliance Guaranteed</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-nav border-b border-slate-800 text-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primaryBlue to-tealAccent flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    S
+                </div>
+                <div>
+                    <span class="text-lg sm:text-xl font-bold tracking-tight text-white block leading-none">Skillora</span>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-primaryBlue mt-1 block">M-Core Consultant</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-primaryBlue transition-colors">Home</a>
+                <a href="#about" class="hover:text-primaryBlue transition-colors">About Us</a>
+                <a href="#services" class="hover:text-primaryBlue transition-colors">HR & Compliance</a>
+                <a href="#solutions" class="hover:text-primaryBlue transition-colors">Core Business</a>
+                <a href="#industries" class="hover:text-primaryBlue transition-colors">Industries</a>
+                <a href="#contact" class="hover:text-primaryBlue transition-colors">Contact Us</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:flex items-center">
+                <a href="#contact" class="bg-gradient-to-r from-primaryBlue to-tealAccent text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-md hover:opacity-95 transition-all transform hover:-translate-y-0.5">
+                    Book an HR Audit
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate900 border-b border-slate-800 px-6 pt-4 pb-6 space-y-4">
+            <a href="#home" class="block text-base font-medium hover:text-primaryBlue mobile-link">Home</a>
+            <a href="#about" class="block text-base font-medium hover:text-primaryBlue mobile-link">About Us</a>
+            <a href="#services" class="block text-base font-medium hover:text-primaryBlue mobile-link">HR & Compliance Services</a>
+            <a href="#solutions" class="block text-base font-medium hover:text-primaryBlue mobile-link">Core Business Services</a>
+            <a href="#industries" class="block text-base font-medium hover:text-primaryBlue mobile-link">Industries We Serve</a>
+            <a href="#contact" class="block text-base font-medium hover:text-primaryBlue mobile-link">Contact Us</a>
+            <div class="pt-2">
+                <a href="#contact" class="block text-center bg-gradient-to-r from-primaryBlue to-tealAccent text-white px-5 py-3 rounded-xl font-medium text-sm shadow-md mobile-link">
+                    Book an HR Audit
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative hero-gradient text-white py-24 lg:py-32 overflow-hidden">
+        <!-- Background decorative blur circles -->
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-primaryBlue opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-tealAccent opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate800/80 border border-slate-700 text-primaryBlue text-xs font-semibold uppercase tracking-wider shadow-inner">
+                        <i class="fa-solid fa-award"></i> Premier HR & Compliance Partner
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                        Driving Business Growth Through <span class="text-transparent bg-clip-text bg-gradient-to-r from-primaryBlue to-tealAccent">Compliant HR, Payroll</span> & Workforce Strategy
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        We help organizations build strong HR foundations, ensure 100% regulatory compliance, and optimize workforce operations so leaders can focus on scaling.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#services" class="w-full sm:w-auto bg-gradient-to-r from-primaryBlue to-tealAccent text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-primaryBlue/25 hover:opacity-95 transition-all text-center">
+                            Explore HR & Compliance Services
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto bg-slate800/80 hover:bg-slate800 text-white font-semibold px-8 py-4 rounded-xl border border-slate-700 transition-all text-center">
+                            Get a Custom Quote
+                        </a>
+                    </div>
+                    <!-- Trust badges -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-6 text-left">
+                        <div>
+                            <p class="text-3xl font-extrabold text-primaryBlue">100%</p>
+                            <p class="text-xs text-slate-400 mt-1">Statutory Adherence</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-extrabold text-tealAccent">End-to-End</p>
+                            <p class="text-xs text-slate-400 mt-1">Payroll & Compliance</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-extrabold text-white">24/7</p>
+                            <p class="text-xs text-slate-400 mt-1">Dedicated HR Support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Visual Card -->
+                <div class="lg:col-span-5" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="bg-slate800/60 backdrop-blur-xl border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-2xl relative">
+                        <div class="absolute -top-3 -right-3 bg-tealAccent text-white text-xs px-3 py-1 rounded-full font-bold shadow-md">
+                            Active Consultation
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-primaryBlue"></i> Strategic Workforce Hub
+                        </h3>
+                        <p class="text-slate-300 text-sm mb-6">
+                            Transform your company's operational backbone with precision-engineered compliance frameworks and automated payroll models.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="bg-slate900/80 p-4 rounded-xl border border-slate-700 flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-primaryBlue/20 text-primaryBlue flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold">Labor Law & Statutory Audits</h4>
+                                    <p class="text-xs text-slate-400">Zero-penalty mitigation strategy</p>
+                                </div>
+                            </div>
+                            <div class="bg-slate900/80 p-4 rounded-xl border border-slate-700 flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-tealAccent/20 text-tealAccent flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold">Precision Payroll & TDS</h4>
+                                    <p class="text-xs text-slate-400">Automated computation & Form 16</p>
+                                </div>
+                            </div>
+                            <div class="bg-slate900/80 p-4 rounded-xl border border-slate-700 flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-users-gear"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold">HR Infrastructure & SOPs</h4>
+                                    <p class="text-xs text-slate-400">Scalable employee lifecycles</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-400">Speak with our director:</span>
+                            <a href="tel:8408871182" class="text-tealAccent font-semibold text-sm hover:underline"><i class="fa-solid fa-phone mr-1"></i> 8408871182</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                    <span class="text-primaryBlue font-semibold text-sm uppercase tracking-wider">About Skillora M-Core Consultant</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate900">
+                        Empowering Enterprises with Robust HR & Compliance Foundations
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        At <strong class="text-slate900">Skillora M-Core Consultant</strong>, we specialize in bridging the gap between complex regulatory mandates and frictionless workforce execution. As organizations scale, maintaining multi-state statutory compliance, structuring precise payroll, and designing employee policies become critical for sustainable success.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Led by seasoned HR strategists and legal compliance experts, we partner with startups, tech giants, manufacturing units, and healthcare institutions to establish bulletproof operational workflows.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-2">
+                        <div class="border-l-2 border-primaryBlue pl-4">
+                            <h4 class="font-bold text-slate900 text-lg">Mission-Driven</h4>
+                            <p class="text-sm text-slate-500 mt-1">Eliminating statutory risk while maximizing employee morale.</p>
+                        </div>
+                        <div class="border-l-2 border-tealAccent pl-4">
+                            <h4 class="font-bold text-slate900 text-lg">Tailored Advisory</h4>
+                            <p class="text-sm text-slate-500 mt-1">Custom frameworks built specifically for your team size and industry.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 bg-slate900 text-white rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden" data-aos="fade-left">
+                    <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-primaryBlue/20 rounded-full blur-2xl"></div>
+                    <h3 class="text-2xl font-bold mb-6 text-white">Why Businesses Trust Skillora</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-tealAccent/20 text-tealAccent flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-check text-xs"></i></div>
+                            <div>
+                                <strong class="block text-white">Proactive Compliance Monitoring</strong>
+                                <span class="text-sm text-slate-300">Stay ahead of amendments in PF, ESI, Minimum Wages, and Labour Codes.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-tealAccent/20 text-tealAccent flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-check text-xs"></i></div>
+                            <div>
+                                <strong class="block text-white">Error-Free Payroll Execution</strong>
+                                <span class="text-sm text-slate-300">Seamless tax computation, reimbursements, and timely salary disbursements.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-tealAccent/20 text-tealAccent flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-check text-xs"></i></div>
+                            <div>
+                                <strong class="block text-white">End-to-End Scalability</strong>
+                                <span class="text-sm text-slate-300">From POSH committees and handbooks to executive search and HRMS onboarding.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 block">Direct Inquiry</span>
+                            <a href="mailto:director.skillora@gmail.com" class="text-sm font-semibold text-primaryBlue hover:underline">director.skillora@gmail.com</a>
+                        </div>
+                        <a href="#contact" class="bg-primaryBlue hover:bg-primaryBlue/90 text-white text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all">
+                            Talk to Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated HR & Compliance Services Section -->
+    <section id="services" class="py-24 bg-[#f1f5f9]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-primaryBlue font-semibold text-sm uppercase tracking-wider">Comprehensive Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate900 mt-2">
+                    HR, Compliance & Workforce Services
+                </h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    A comprehensive, specialized suite of HR, Compliance, Payroll, and Workforce Management Services tailored for growing enterprises.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 card-hover flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-primaryBlue/10 text-primaryBlue flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate900 mb-2">1. Statutory & Labour Law Compliance</h3>
+                        <p class="text-sm font-medium text-tealAccent mb-4 italic">Protect your organization from legal risks, audits, and statutory penalties.</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-600 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-primaryBlue mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Labor Law Audits & Advisory:</strong> Thorough reviews of workplace practices, registers, and agreements.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-primaryBlue mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Statutory Filings:</strong> End-to-end PF, ESI, PT, Minimum Wages & Shops/Establishments licensing.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-primaryBlue mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">POSH & Safety Governance:</strong> Policy structuring, committee formation & mandatory training.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="#contact" class="text-primaryBlue font-semibold text-sm hover:underline flex items-center gap-1.5">
+                            Secure your audit <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 card-hover flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate900 mb-2">2. End-to-End Payroll Management</h3>
+                        <p class="text-sm font-medium text-tealAccent mb-4 italic">Accurate, timely, and compliant payroll processing for seamless employee experience.</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-600 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-tealAccent mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Payroll & Salary Structuring:</strong> Full-cycle execution, tax computation, attendance & payslip generation.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-tealAccent mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Tax Deductions & Year-End:</strong> TDS calculations, Form 16 issuance, quarterly returns & tax support.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-tealAccent mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Benefits Architecture:</strong> Gratuity structures, bonuses & competitive insurance programs.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="#contact" class="text-tealAccent font-semibold text-sm hover:underline flex items-center gap-1.5">
+                            Optimize payroll <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 card-hover flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-folder-tree"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate900 mb-2">3. HR Infrastructure & SOP Frameworks</h3>
+                        <p class="text-sm font-medium text-tealAccent mb-4 italic">Build structured, scalable internal processes for every stage of the employee lifecycle.</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-600 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-indigo-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Policy Drafting & Handbooks:</strong> Customized leave, remote work, code of conduct & IT security policies.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-indigo-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">SOPs & Workflows:</strong> Clear onboarding, probation reviews, transfers, grievances & exit management.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-indigo-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Hierarchy & JD Mapping:</strong> Competency matrices, career paths and reporting structures.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="#contact" class="text-indigo-600 font-semibold text-sm hover:underline flex items-center gap-1.5">
+                            Build frameworks <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 card-hover flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate900 mb-2">4. Talent Acquisition & HR Tech</h3>
+                        <p class="text-sm font-medium text-tealAccent mb-4 italic">Source top talent and modernize your HR operations with modern tech stacks.</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-600 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-amber-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Strategic Recruitment:</strong> End-to-end executive search and hiring for niche tech & operational roles.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-amber-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">HRMS & Tool Advisory:</strong> Selection, setup and data migration for cloud HR and ATS tools.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-amber-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Performance Systems (PMS):</strong> KPI/OKR frameworks, appraisals & feedback tools.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="#contact" class="text-amber-600 font-semibold text-sm hover:underline flex items-center gap-1.5">
+                            Upgrade tech stack <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 card-hover flex flex-col justify-between" data-aos="fade-up" data-aos-delay="500">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate900 mb-2">5. Employee Relations & Change</h3>
+                        <p class="text-sm font-medium text-tealAccent mb-4 italic">Maintain a healthy workplace culture while navigating organizational restructuring.</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-600 mb-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Industrial Relations:</strong> Expert grievance handling, disciplinary proceedings and mediation.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Restructuring Support:</strong> Strategic consulting during mergers, scale-ups or rightsizing.</div>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-600 mt-1 text-xs"></i>
+                                <div><strong class="text-slate-800">Upskilling & Engagement:</strong> Wellness initiatives, team alignment & soft-skills workshops.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="#contact" class="text-emerald-600 font-semibold text-sm hover:underline flex items-center gap-1.5">
+                            Improve relations <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Summary / Quick Contact Card -->
+                <div class="bg-gradient-to-br from-slate900 to-slate800 text-white rounded-2xl p-8 shadow-xl flex flex-col justify-between" data-aos="fade-up" data-aos-delay="600">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-primaryBlue text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Need a Custom HR Bundle?</h3>
+                        <p class="text-sm text-slate-300 mb-6">
+                            Every organization has unique compliance requirements. Talk directly with our senior consultant to curate a custom package.
+                        </p>
+                        <div class="space-y-2 text-sm text-slate-300">
+                            <p><i class="fa-solid fa-phone text-tealAccent mr-2"></i> 8408871182</p>
+                            <p><i class="fa-solid fa-envelope text-primaryBlue mr-2"></i> director.skillora@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <a href="#contact" class="block w-full bg-gradient-to-r from-primaryBlue to-tealAccent text-white font-semibold py-3 px-4 rounded-xl text-center shadow-md hover:opacity-95 transition-all">
+                            Request Consultation
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Business Services Section (#solutions) -->
+    <section id="solutions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-tealAccent font-semibold text-sm uppercase tracking-wider">Strategic Business Enablement</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate900 mt-2">
+                    Core Business Services
+                </h2>
+                <p class="text-slate-600 mt-4 text-base">
+                    Beyond HR and compliance, we provide foundational corporate advisory to ensure seamless operational continuity.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[#f8fafc] border border-slate-200 rounded-2xl p-8 text-center card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-2xl bg-primaryBlue/10 text-primaryBlue flex items-center justify-center text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate900 mb-3">Corporate Governance</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Establishing internal controls, risk management frameworks, and board-level compliance protocols to protect stakeholders.
+                    </p>
+                </div>
+
+                <div class="bg-[#f8fafc] border border-slate-200 rounded-2xl p-8 text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-2xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate900 mb-3">Contract Lifecycle Management</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Drafting, reviewing, and managing vendor agreements, client contracts, and employment covenants with airtight legal backing.
+                    </p>
+                </div>
+
+                <div class="bg-[#f8fafc] border border-slate-200 rounded-2xl p-8 text-center card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate900 mb-3">Operational Optimization</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Streamlining organizational structures, cost-efficiency analysis, and workflow digitization for sustainable enterprise growth.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section id="industries" class="py-24 bg-slate900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-primaryBlue font-semibold text-sm uppercase tracking-wider">Sector Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">
+                    Industries We Serve
+                </h2>
+                <p class="text-slate-400 mt-4 text-base">
+                    Customized compliance and HR models engineered for the unique operational challenges of your industry.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Industry 1 -->
+                <div class="bg-slate800/80 border border-slate-700 rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-xl bg-primaryBlue/25 text-primaryBlue flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">IT, Software & Tech Startups</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Rapid HR scaling, equity/comp structuring, ESOP advisory, and remote-work policy frameworks.
+                    </p>
+                </div>
+
+                <!-- Industry 2 -->
+                <div class="bg-slate800/80 border border-slate-700 rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-xl bg-tealAccent/25 text-tealAccent flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Manufacturing & Engineering</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Factory act compliance, contract labor management, safety standards, and industrial relations.
+                    </p>
+                </div>
+
+                <!-- Industry 3 -->
+                <div class="bg-slate800/80 border border-slate-700 rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/25 text-indigo-400 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-landmark"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Corporate & Financial Services</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Strict statutory audits, executive search, confidentiality protocols, and data privacy governance.
+                    </p>
+                </div>
+
+                <!-- Industry 4 -->
+                <div class="bg-slate800/80 border border-slate-700 rounded-2xl p-6 card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/25 text-amber-400 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-hospital-user"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Retail & Healthcare</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Shift management, multi-location compliance, roster optimization, and high-volume recruitment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Lead & Consultation Form (#contact) -->
+    <section id="contact" class="py-24 bg-[#f8fafc] relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden" data-aos="zoom-in" data-aos-duration="800">
+                <div class="bg-gradient-to-r from-slate900 to-slate800 p-8 sm:p-12 text-white text-center">
+                    <span class="text-tealAccent text-xs uppercase font-bold tracking-widest bg-slate-800 px-3 py-1 rounded-full border border-slate-700 inline-block mb-3">Direct Consultation</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Request a Customized HR & Compliance Consultation</h2>
+                    <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+                        Fill out the details below and our lead strategist will get in touch within 24 hours. Or call us directly at <a href="tel:8408871182" class="text-tealAccent font-semibold underline">8408871182</a>.
+                    </p>
+                </div>
+
+                <div class="p-8 sm:p-12">
+                    <form id="consultation-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Full Name -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="fullName" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primaryBlue text-slate-800 text-sm transition-all">
+                            </div>
+                            <!-- Corporate Email -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Corporate Email <span class="text-red-500">*</span></label>
+                                <input type="email" id="corporateEmail" required placeholder="rahul@company.com" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primaryBlue text-slate-800 text-sm transition-all">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Company Name & Team Size -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Company Name & Team Size <span class="text-red-500">*</span></label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <input type="text" id="companyName" required placeholder="Company Name" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primaryBlue text-slate-800 text-sm transition-all">
+                                    <select id="teamSize" required class="w-full px-3 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primaryBlue text-slate-800 text-sm bg-white transition-all">
+                                        <option value="" disabled selected>Team Size</option>
+                                        <option value="1-20">1–20</option>
+                                        <option value="21-50">21–50</option>
+                                        <option value="51-200">51–200</option>
+                                        <option value="200+">200+</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Phone Number -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Phone Number <span class="text-red-500">*</span></label>
+                                <input type="tel" id="phoneNumber" required placeholder="8408871182" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primaryBlue text-slate-800 text-sm transition-all">
+                            </div>
+                        </div>
+
+                        <!-- Services Required Checkboxes -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-3">Services Required (Select all that apply)</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                                <label class="flex items-center gap-3 text-sm text-slate-700 cursor-pointer">
+                                    <input type="checkbox" name="service" value="Labor Law Audit" class="w-4 h-4 text-primaryBlue rounded border-slate-300 focus:ring-primaryBlue">
+                                    Labor Law & Statutory Compliance Audit
+                                </label>
+                                <label class="flex items-center gap-3 text-sm text-slate-700 cursor-pointer">
+                                    <input type="checkbox" name="service" value="Payroll Processing" class="w-4 h-4 text-primaryBlue rounded border-slate-300 focus:ring-primaryBlue">
+                                    Payroll Processing & Tax Advisory
+                                </label>
+                                <label class="flex items-center gap-3 text-sm text-slate-700 cursor-pointer">
+                                    <input type="checkbox" name="service" value="HR Policy Drafting" class="w-4 h-4 text-primaryBlue rounded border-slate-300 focus:ring-primaryBlue">
+                                    HR Policy & Handbook Drafting
+                                </label>
+                                <label class="flex items-center gap-3 text-sm text-slate-700 cursor-pointer">
+                                    <input type="checkbox" name="service" value="Talent Acquisition" class="w-4 h-4 text-primaryBlue rounded border-slate-300 focus:ring-primaryBlue">
+                                    Talent Acquisition / Executive Search
+                                </label>
+                                <label class="flex items-center gap-3 text-sm text-slate-700 cursor-pointer sm:col-span-2">
+                                    <input type="checkbox" name="service" value="HRMS Implementation" class="w-4 h-4 text-primaryBlue rounded border-slate-300 focus:ring-primaryBlue">
+                                    HRMS Implementation & HR Automation
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Message / Core HR Challenges -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Message / Core HR Challenges</label>
+                            <textarea id="message" rows="4" placeholder="Briefly describe your current compliance hurdles or workforce scaling goals..." class="w-full px-4 py-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primaryBlue text-slate-800 text-sm transition-all"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-primaryBlue to-tealAccent text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:opacity-95 transition-all text-base flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Request Free Consultation
+                            </button>
+                        </div>
+
+                        <!-- Success Message Alert (Hidden by default) -->
+                        <div id="form-success-alert" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-xl text-center text-sm font-medium">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mr-2 text-lg"></i> Thank you! Your consultation request has been submitted successfully. Our team will contact you shortly at <span id="alert-phone" class="font-bold"></span>.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (#footer) -->
+    <footer id="footer" class="bg-slate900 text-slate-400 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-primaryBlue to-tealAccent flex items-center justify-center text-white font-bold text-lg">
+                            S
+                        </div>
+                        <div>
+                            <span class="text-lg font-bold text-white block leading-none">Skillora M-Core</span>
+                            <span class="text-xs font-medium uppercase tracking-widest text-primaryBlue mt-1 block">Consultant</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+                        Skillora M-Core Consultant — Your Trusted HR, Compliance & Strategic Workforce Partner. Driving business growth through rigorous statutory compliance and payroll excellence.
+                    </p>
+                    <div class="pt-2 space-y-1 text-sm">
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-envelope text-primaryBlue"></i> <a href="mailto:director.skillora@gmail.com" class="hover:text-white transition-colors">director.skillora@gmail.com</a></p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-tealAccent"></i> <a href="tel:8408871182" class="hover:text-white transition-colors">8408871182</a></p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">HR Services</a></li>
+                        <li><a href="#solutions" class="hover:text-white transition-colors">Compliance Solutions</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services List -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Core Services</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#services" class="hover:text-white transition-colors">Statutory & Labour Audit</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Payroll & TDS Advisory</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">HR Policy & Handbooks</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Executive Search</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">HRMS Implementation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Headquarters Address -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Headquarters</h4>
+                    <p class="text-sm leading-relaxed text-slate-400">
+                        Skillora M-Core Consultant<br>
+                        Corporate Advisory Wing<br>
+                        India<br>
+                        <span class="block mt-2 text-xs text-slate-500">Helpline: 8408871182</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Disclaimer & Copyright -->
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>
+                    <strong class="text-slate-400">Legal Disclaimer:</strong> Legal & Compliance information provided on this platform serves as corporate consulting guidance and does not replace formal legal counsel.
+                </p>
+                <p class="whitespace-nowrap">
+                    © 2026 Skillora M-Core Consultant. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            once: true,
+            duration: 800,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const phone = document.getElementById('phoneNumber').value;
+            const alertBox = document.getElementById('form-success-alert');
+            const alertPhoneSpan = document.getElementById('alert-phone');
+
+            alertPhoneSpan.textContent = phone;
+            alertBox.classList.remove('hidden');
+
+            // Reset form
+            document.getElementById('consultation-form').reset();
+
+            // Scroll to alert
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
